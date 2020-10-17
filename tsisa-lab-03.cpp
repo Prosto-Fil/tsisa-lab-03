@@ -1,4 +1,4 @@
-﻿#include <iostream>
+#include <iostream>
 #include <iomanip>
 #include <cmath>
 #include <vector>
@@ -14,7 +14,7 @@ auto random(const double min, const double max) -> double {
     return (double)(rand()) / RAND_MAX * (max - min) + min;
 }
 
-auto f(const double x, const int choice) -> double {
+auto f(const double x, const bool choice) -> double {
     if (choice == 0) {
         return -sqrt(x) * sin(x);
     }
@@ -23,7 +23,7 @@ auto f(const double x, const int choice) -> double {
     }
 }
 
-auto Annealing(const int choice) -> std::vector<std::pair<double, double>> {
+auto Annealing(const bool choice) -> std::vector<std::pair<double, double>> {
     std::vector<std::pair<double, double>> result;
     auto x_min = random(a, b);
     auto t_max = 10000.0, t_min = 0.01;
@@ -48,7 +48,7 @@ auto Annealing(const int choice) -> std::vector<std::pair<double, double>> {
     return result;
 }
 
-void Print(const std::vector<std::pair<double, double>>& table, const int choice) {
+void Print(const std::vector<std::pair<double, double>>& table, const bool choice) {
     cout << std::string(44, '-') << endl;
     cout << "|" << std::setw(4) << std::left << "N";
     cout << "|" << std::setw(11) << std::left << "T";
